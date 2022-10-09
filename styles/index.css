@@ -1,0 +1,300 @@
+@import url("./reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&family=Sora:wght@300&display=swap");
+
+body {
+  background-image: url("../img/body.jpg");
+  font-family: 'Raleway';
+}
+
+.head { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagem-logo {
+  height: 90%;
+  /* width: 300px; */
+}
+
+.nav-wrapper {
+  box-shadow: 0 1px 4px rgb(0 0 0 / 20%);
+  background-color: white;
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  height: 90px;
+  align-items: center;
+}
+
+.filters-wrapper {
+  display: flex;
+  gap:20px;
+  justify-content: space-around;
+  height: 90px;
+  align-items: center;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-around;
+  height: 90px;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+
+.nav-link {
+  /* border: 1px solid #E8772E; */
+  float: left;
+  font-size: 30px;
+  font-weight: 500;
+  list-style: none;
+  position: relative;
+  padding: 30px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: #E8772E;
+}
+
+#select-difficulty-filter {
+  font-family: inherit;
+  font-size: 20px;
+  align-self: center;
+  height: 33px;
+}
+
+.search-name-wrapper {
+  display: flex;
+  justify-content: space-around;
+  height: 30%;
+}
+
+.search-ingredientes-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-ingreditent-container, .clear-ingreditents-container{
+  display: flex;
+}
+
+.add-ingredient-button {
+  font-size: 33px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.clear-ingredients-button {
+  font-size: 27px;
+}
+
+.search-input {
+  font-family: 'Raleway';
+  font-weight: 900;
+  font-size: 15px;
+  height: 27px;
+  align-self: center;
+
+}
+
+.search-button-wrapper{
+  display: flex;
+}
+
+.search-button {
+  color:#E8772E;
+  display: flex;
+  align-items: center;
+  font-size: 50px;
+}
+
+.search-button:hover {
+  border: 1px solid #E8772E;
+  background-color: rgb(211, 211, 211);
+  border-radius: 30px;
+  transition: 0.5s;
+}
+
+.search-result {
+  margin-left: 10px;
+  align-self: center;
+}
+
+#container-recipies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  gap: 30px;
+  justify-content: center;
+  margin: auto;
+  padding: 20px;
+  font-family: Raleway;
+}
+
+.recipe-container {
+  box-shadow: 0 1px 4px rgb(0 0 0 / 20%);
+  border-radius: 10px;
+  /* flex:1 1 auto; */
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-image {
+  width: 100%;
+  max-height: 272px;
+}
+
+.recipe-info-container {
+  padding: 10px;
+  text-align: center;
+  background: white;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1 1 auto;
+  /* min-height: 125px; */
+}
+
+.recipe-title {
+  color: Black;
+  text-align: center;
+  height: 100%;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.recipe-info-line {
+  margin-top: auto;
+  background-color: lightgray;
+  height: 0.1px;
+  border: none;
+  margin: 15px;
+}
+
+.recipe-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.difficulty {
+  font-size: 20px;
+}
+.difficulty-icon {
+  font-size: 30px;
+}
+
+.comments {
+  color: #E8772E;
+  font-size: 27px;
+  margin-top: 5px;
+}
+
+.full-recipe-container { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.full-recipe {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.title-difficulty {
+  display: flex;
+  padding-top: 40px;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.full-recipe-title{
+  font-family: 'Raleway';
+  font-size: 50px;
+  width: 600px;
+  text-decoration: underline;
+  text-decoration-color: #E8772E;
+
+}
+
+.full-recipe-difficulty {
+  font-family: 'Raleway';
+  font-size: 50px;
+}
+
+.full-recipe-difficulty-icon {
+  font-size: 50px;
+}
+
+.img-ingredients {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 0px 20px 0px;
+  gap: 20px;
+}
+
+.full-recipe-image{
+  height: auto;
+  width: 600px;
+  width: 100%;
+}
+
+#full-recipe-ingredients {
+  background-color: white;
+  font-size: 25px;
+  padding: 20px;
+  gap: 20px;
+}
+
+#full-recipe-method, #full-recipe-description {
+  background-color: white;
+  padding: 20px;
+  gap: 20px;
+  font-size: 25px;
+}
+
+.full-recipe-footer{
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 20px;
+  gap: 20px;
+  font-size: 25px;
+}
+
+#back-button {
+  font-size: 100px;
+  width: 100px;
+}
+
+.about-wrapper {
+  width: 90%;
+}
+
+.about-title {
+  padding: 20px;
+  font-family: 'Raleway';
+  font-size: 50px;
+  text-decoration: underline;
+  text-decoration-color: #E8772E;
+}
+
+.about-text {
+  padding: 20px;
+  font-family: 'Raleway';
+  font-size: 25px;
+}
+
+.about-back-button-wrapper{
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./styles/index.css" rel="stylesheet" />
+    <title>Curso TypeScript - Aula 02</title>
+  </head>
+  <body>
+      <div class="container-header"></div>
+      <header class="head">
+        <div class="nav-wrapper">
+          <img class="imagem-logo" src="../img/logo.png">
+          <nav id="nav" class="main-nav">
+            <li class="nav-link" id="home-link">Home</li>
+            <li class="nav-link" id="recipies-link">Recipes</li>
+            <li class="nav-link" id="about-link">About</li>
+          </nav>
+          <div class="filters-wrapper">
+            <select id="select-difficulty-filter">
+              <option value="0">Difficulty</option>
+              <option value="1/3">Easy</option>
+              <option value="4/5">Medium</option>
+              <option value="7/99">Hard</option>
+            </select>
+            <div class="search-ingredientes-wrapper">
+              <div class="add-ingreditent-container">
+                <input type="text" class="search-input" id="search-ingredients-input" placeholder="Search Ingredients"></input>
+                <div class="add-ingredient-button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="#E8772E" d="M16 4c6.6 0 12 5.4 12 12s-5.4 12-12 12S4 22.6 4 16S9.4 4 16 4m0-2C8.3 2 2 8.3 2 16s6.3 14 14 14s14-6.3 14-14S23.7 2 16 2z"/><path fill="#E8772E" d="M24 15h-7V8h-2v7H8v2h7v7h2v-7h7z"/></svg></div>
+              </div>
+              <div class="clear-ingreditents-container">
+                <label class="search-ingredients"></label>
+                <div class="clear-ingredients-button hide"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36"><path fill="#E8772E" d="m19.61 18l4.86-4.86a1 1 0 0 0-1.41-1.41l-4.86 4.81l-4.89-4.89a1 1 0 0 0-1.41 1.41L16.78 18L12 22.72a1 1 0 1 0 1.41 1.41l4.77-4.77l4.74 4.74a1 1 0 0 0 1.41-1.41Z" class="clr-i-outline clr-i-outline-path-1"/><path fill="#E8772E" d="M18 34a16 16 0 1 1 16-16a16 16 0 0 1-16 16Zm0-30a14 14 0 1 0 14 14A14 14 0 0 0 18 4Z" class="clr-i-outline clr-i-outline-path-2"/><path fill="none" d="M0 0h36v36H0z"/></svg></div>
+              </div>
+            </div>
+            <div class="search-name-wrapper">
+              <input type="text" class="search-input" id="search-name-input" placeholder="Search Recipe Name"></input>
+            </div>
+            <div class="search-button-wrapper">
+              <div class="search-button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path fill="currentColor" d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1c-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"/></svg></div>
+              <label class="search-result"></label>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main id="main">
+        <div id="container-recipies-grid"></div>
+      </main>
+    <script src="./scripts/index.js" type="module"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  </body>
+</html>
