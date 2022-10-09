@@ -46,7 +46,7 @@ function renderMultiple(receitas:Receita[] = arrayAllRecipes) {
                         <hr class="recipe-info-line">     
                         <div class="recipe-actions">
                               <div class="difficulty">Difficulty: <span class="difficulty-icon">${difficultyIcon}</span></div>
-                              <div class="comments"><a href="${receitas[i].url}+#commentsFeed" style="color: #E8772E"><svg xmlns="http://www.w3.org/2000/svg" width="1.17em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1792 1536"><path fill="currentColor" d="M896 128q-204 0-381.5 69.5T232.5 385T128 640q0 112 71.5 213.5T401 1029l87 50l-27 96q-24 91-70 172q152-63 275-171l43-38l57 6q69 8 130 8q204 0 381.5-69.5t282-187.5T1664 640t-104.5-255t-282-187.5T896 128zm896 512q0 174-120 321.5t-326 233t-450 85.5q-70 0-145-8q-198 175-460 242q-49 14-114 22h-5q-15 0-27-10.5t-16-27.5v-1q-3-4-.5-12t2-10t4.5-9.5l6-9l7-8.5l8-9q7-8 31-34.5t34.5-38t31-39.5t32.5-51t27-59t26-76q-157-89-247.5-220T0 640q0-174 120-321.5t326-233T896 0t450 85.5t326 233T1792 640z"/></svg></a></div>
+                              <div class="comments"><a href="${receitas[i].url}#commentsFeed" style="color: #E8772E"><svg xmlns="http://www.w3.org/2000/svg" width="1.17em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1792 1536"><path fill="currentColor" d="M896 128q-204 0-381.5 69.5T232.5 385T128 640q0 112 71.5 213.5T401 1029l87 50l-27 96q-24 91-70 172q152-63 275-171l43-38l57 6q69 8 130 8q204 0 381.5-69.5t282-187.5T1664 640t-104.5-255t-282-187.5T896 128zm896 512q0 174-120 321.5t-326 233t-450 85.5q-70 0-145-8q-198 175-460 242q-49 14-114 22h-5q-15 0-27-10.5t-16-27.5v-1q-3-4-.5-12t2-10t4.5-9.5l6-9l7-8.5l8-9q7-8 31-34.5t34.5-38t31-39.5t32.5-51t27-59t26-76q-157-89-247.5-220T0 640q0-174 120-321.5t326-233T896 0t450 85.5t326 233T1792 640z"/></svg></a></div>
                         </div>
                     </div>`
 
@@ -136,13 +136,6 @@ function clearRender() {
   if (containerRecipiesGrid) containerRecipiesGrid.innerHTML = '';
 }
 
-// function scrollFunction() {
-//   if ((window.innerHeight + Math.ceil(window.pageYOffset)) >= document.body.offsetHeight) {
-//     console.log('CHEGOU NO FIM');
-//     getReceitas()
-//   }
-// }
-
 window.onscroll = function() {
   if ((window.innerHeight + Math.ceil(window.pageYOffset)) >= document.body.offsetHeight) {
     console.log('CHEGOU NO FIM');
@@ -192,7 +185,6 @@ function filterByName(arrayRecipes:Receita[] = arrayAllRecipes) {
   let newArrayRecipes:Receita[] = arrayRecipes;
 
   newArrayRecipes = newArrayRecipes.filter((recipe) => {
-    // console.log(recipe['Name'].toLowerCase().includes(inputValue));
     return recipe.Name.toLowerCase().includes(inputValue);
   })
   const searchResult = (document.querySelector(".search-result") as HTMLLabelElement);
@@ -241,7 +233,9 @@ function renderAbout() {
                     <h1 class="about-title"> What is Gramma's recipes ? </h1>
                     <h2 class="about-text"> Gramma's recipes is a collection of recipes gathered from all over the internet to make it easy for you to search for recipes.
                     We offer a range of recipes with varying difficulties, whether you are beginner, intermediate or advanced chef we have something to challenge your skills.
-                    If you are a beginner chef, dont be scared. We have a huge collection of beginner friendly recipes. And as you raise your cooking skill, you may choose more challenging ones.</h2>
+                    If you are a beginner chef, dont be scared. We have a huge collection of beginner friendly recipes. And as you raise your cooking skill, you may choose more challenging ones.
+                    Join us on our pursuit for the best recipies in the world.<br><br>    
+                    <p>And as the saying goes: The old pot makes the best food!</p></h2>
                     <div class="about-back-button-wrapper">
                       <div id="back-button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="#e8772e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m2 11l7-9v5c11.953 0 13.332 9.678 13 15c-.502-2.685-.735-7-13-7v5l-7-9Z"/></svg></div>
                     </div> 
