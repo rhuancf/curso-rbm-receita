@@ -274,6 +274,7 @@ body {
 #back-button {
   font-size: 100px;
   width: 100px;
+  cursor:pointer;
 }
 
 .about-wrapper {
