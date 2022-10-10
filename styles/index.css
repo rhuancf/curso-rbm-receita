@@ -87,6 +87,7 @@ body {
   font-size: 33px;
   margin-left: 5px;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .clear-ingredients-button {
@@ -146,6 +147,7 @@ body {
 .recipe-image {
   width: 100%;
   max-height: 272px;
+  cursor:pointer;
 }
 
 .recipe-info-container {
@@ -167,6 +169,7 @@ body {
   text-decoration: none;
   font-weight: 900;
   font-size: 20px;
+  cursor:pointer;
 }
 
 .recipe-info-line {

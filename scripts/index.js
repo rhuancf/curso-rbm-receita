@@ -39,7 +39,7 @@ function renderMultiple(receitas = arrayAllRecipes) {
         const card = `<div class="recipe-container" id="${receitas[i].url}">
                       <img class="recipe-image" src="${receitas[i].urlImage}" />
                       <div class="recipe-info-container">
-                        <h2><a class="recipe-title">${receitas[i].Name}</a></h2>  
+                        <h2 id="${receitas[i].url}"><a class="recipe-title">${receitas[i].Name}</a></h2>  
                         <hr class="recipe-info-line">     
                         <div class="recipe-actions">
                               <div class="difficulty">Difficulty: <span class="difficulty-icon">${difficultyIcon}</span></div>
