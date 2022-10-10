@@ -28,7 +28,7 @@ function getReceitas() {
 getReceitas();
 const containerRecipiesGrid = document.getElementById("container-recipies-grid");
 function renderMultiple(receitas = arrayAllRecipes) {
-    console.log(receitas);
+    // console.log(receitas);
     for (let i = 0; i < receitas.length; i++) {
         const difficulty = receitas[i].Method.length;
         let difficultyIcon = '<svg style="color:#2bbf2b" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M30 30h-8V4h8zm-6-2h4V6h-4zm-4 2h-8V12h8zm-6-2h4V14h-4zm-4 2H2V18h8z"/></svg>';
@@ -36,7 +36,7 @@ function renderMultiple(receitas = arrayAllRecipes) {
             difficultyIcon = '<svg style="color:#f1f148" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M30 30h-8V4h8zm-6-2h4V6h-4zm-4 2h-8V12h8zm-10 0H2V18h8z"/></svg>';
         if (difficulty > 5)
             difficultyIcon = '<svg style="color:#dd2424fc" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path fill="currentColor" d="M30 30h-8V4h8zm-10 0h-8V12h8zm-10 0H2V18h8z"/></svg>';
-        const card = `<div class="recipe-container" id="${receitas[i].url}">
+        const card = `<div class="recipe-container hidden" id="${receitas[i].url}">
                       <img class="recipe-image" src="${receitas[i].urlImage}" />
                       <div class="recipe-info-container">
                         <h2 id="${receitas[i].url}"><a class="recipe-title">${receitas[i].Name}</a></h2>  
@@ -55,11 +55,11 @@ function renderMultiple(receitas = arrayAllRecipes) {
         if (url)
             renderSingle(url);
     });
+    transitionEffect();
 }
 function renderSingle(recipeUrl) {
     return __awaiter(this, void 0, void 0, function* () {
         const main = document.getElementById("main");
-        console.log('fez novo fetch');
         const request = yield fetch(apiUrl);
         const response = yield request.json();
         arrayAllRecipes = response;
@@ -82,21 +82,23 @@ function renderSingle(recipeUrl) {
                           <div class="full-recipe-difficulty">Difficulty: <span class="full-recipe-difficulty-icon">${difficultyIcon}</span></div>
                         </div>
                         <div class="img-ingredients">
-                          <img class="full-recipe-image" src="${selectedRecipe.urlImage}" />
-                          <div id="full-recipe-ingredients">
+                          <img class="full-recipe-image hiddenLeft" src="${selectedRecipe.urlImage}" />
+                          <div class="ingredients-wrapper hiddenRight" id="full-recipe-ingredients">
                             <label style="font-size:30px;color:#E8772E">Ingredients:</label> 
                             <label> </label> 
                           </div>
                         </div>
-                        <div id="full-recipe-description"><label style="font-size:30px;color:#E8772E">Description:</label> </div>
-                        <div id="full-recipe-method"><label style="font-size:30px;color:#E8772E">Method:</label> </div>
-                        <div class="full-recipe-footer">
-                          <div class="author-link">
-                            <h2><a class="recipe-author">Author: ${selectedRecipe.Author}</a></h2>   
-                            <a href="${selectedRecipe.url}" class="recipe-original-link">Original Link</a>  
+                        <div class="footer-wrapper hidden">
+                          <div id="full-recipe-description"><label style="font-size:30px;color:#E8772E">Description:</label> </div>
+                          <div id="full-recipe-method"><label style="font-size:30px;color:#E8772E">Method:</label> </div>
+                          <div class="full-recipe-footer">
+                            <div class="author-link">
+                              <h2><a class="recipe-author">Author: ${selectedRecipe.Author}</a></h2>   
+                              <a href="${selectedRecipe.url}" class="recipe-original-link">Original Link</a>  
+                            </div>
+                            <div id="back-button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="#e8772e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m2 11l7-9v5c11.953 0 13.332 9.678 13 15c-.502-2.685-.735-7-13-7v5l-7-9Z"/></svg></div>
                           </div>
-                          <div id="back-button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="#e8772e" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m2 11l7-9v5c11.953 0 13.332 9.678 13 15c-.502-2.685-.735-7-13-7v5l-7-9Z"/></svg></div>
-                        </div>  
+                      </div>  
                     </div>`;
             if (main)
                 main.innerHTML = recipe;
@@ -115,6 +117,7 @@ function renderSingle(recipeUrl) {
             }
             eventListenerHandleBackButtonClick();
             window.onscroll = null;
+            transitionEffectSingleRecipe();
         }
     });
 }
@@ -145,7 +148,7 @@ function filterByIngredients(arrayRecipes = arrayAllRecipes) {
     const ingredients = document.querySelector(".search-ingredients").innerHTML.toLowerCase();
     const arrayIngredients = ingredients.split("/");
     arrayIngredients.pop();
-    console.log(arrayIngredients);
+    // console.log(arrayIngredients)
     let newArrayRecipes = arrayRecipes;
     arrayIngredients.forEach((ingredient) => {
         newArrayRecipes = newArrayRecipes.filter((recipe) => {
@@ -161,7 +164,6 @@ function filterByIngredients(arrayRecipes = arrayAllRecipes) {
 }
 function filterByName(arrayRecipes = arrayAllRecipes) {
     const inputValue = document.querySelector("#search-name-input").value.toLowerCase();
-    console.log(inputValue);
     let newArrayRecipes = arrayRecipes;
     newArrayRecipes = newArrayRecipes.filter((recipe) => {
         return recipe.Name.toLowerCase().includes(inputValue);
@@ -255,3 +257,36 @@ eventListenerHandleSearchButtonClick();
 eventListenerHandleHomeClick();
 eventListenerHandleRecipesClick();
 eventListenerHandleAboutClick();
+function transitionEffect() {
+    const cardsNaTela = document.querySelectorAll('.recipe-container');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+            else {
+                entry.target.classList.remove('show');
+            }
+        });
+    });
+    cardsNaTela.forEach((el) => observer.observe(el));
+}
+function transitionEffectSingleRecipe() {
+    const image = document.querySelectorAll('.full-recipe-image');
+    const ingredients = document.querySelectorAll('.ingredients-wrapper');
+    const footer = document.querySelectorAll('.footer-wrapper');
+    console.log(ingredients);
+    const observer2 = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('showSingle');
+            }
+            else {
+                entry.target.classList.remove('showSingle');
+            }
+        });
+    });
+    image.forEach((el) => observer2.observe(el));
+    ingredients.forEach((el) => observer2.observe(el));
+    footer.forEach((el) => observer2.observe(el));
+}

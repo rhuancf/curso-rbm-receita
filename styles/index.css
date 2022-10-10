@@ -248,8 +248,8 @@ body {
 
 .full-recipe-image{
   height: auto;
-  width: 600px;
   width: 100%;
+  max-height: 800px;
 }
 
 #full-recipe-ingredients {
@@ -354,4 +354,42 @@ body {
     display: none;
     width: 100%;
   }
+}
+
+.hidden {
+  opacity: 0;
+  scale: 0.8;
+  /* filter: blur(3px); */
+  /* transform: translateX(-100%); */
+  transition: all 0.5s;
+}
+
+.show {
+  opacity: 1;
+  scale: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+.hiddenLeft {
+  opacity: 0;
+  scale: 0.8;
+  filter: blur(3px);
+  transform: translateX(-100%);
+  transition: all 1s;
+}
+
+.hiddenRight {
+  opacity: 0;
+  scale: 0.8;
+  filter: blur(3px);
+  transform: translateX(+100%);
+  transition: all 1s;
+}
+
+.showSingle {
+  opacity: 1;
+  scale: 1;
+  filter: blur(0);
+  transform: translateX(0);
 }
