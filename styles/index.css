@@ -249,7 +249,8 @@ body {
 .full-recipe-image{
   height: auto;
   width: 100%;
-  max-height: 800px;
+  /* max-height: 800px; */
+  object-fit:cover;
 }
 
 #full-recipe-ingredients {

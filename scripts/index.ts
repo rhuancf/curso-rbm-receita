@@ -45,21 +45,23 @@ function renderMultiple(receitas:Receita[] = arrayAllRecipes) {
                         <h2 id="${receitas[i].url}"><a class="recipe-title">${receitas[i].Name}</a></h2>  
                         <hr class="recipe-info-line">     
                         <div class="recipe-actions">
-                              <div class="difficulty">Difficulty: <span class="difficulty-icon">${difficultyIcon}</span></div>
-                              <div class="comments"><a href="${receitas[i].url}#commentsFeed" style="color: #E8772E"><svg xmlns="http://www.w3.org/2000/svg" width="1.17em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1792 1536"><path fill="currentColor" d="M896 128q-204 0-381.5 69.5T232.5 385T128 640q0 112 71.5 213.5T401 1029l87 50l-27 96q-24 91-70 172q152-63 275-171l43-38l57 6q69 8 130 8q204 0 381.5-69.5t282-187.5T1664 640t-104.5-255t-282-187.5T896 128zm896 512q0 174-120 321.5t-326 233t-450 85.5q-70 0-145-8q-198 175-460 242q-49 14-114 22h-5q-15 0-27-10.5t-16-27.5v-1q-3-4-.5-12t2-10t4.5-9.5l6-9l7-8.5l8-9q7-8 31-34.5t34.5-38t31-39.5t32.5-51t27-59t26-76q-157-89-247.5-220T0 640q0-174 120-321.5t326-233T896 0t450 85.5t326 233T1792 640z"/></svg></a></div>
+                          <div class="difficulty">Difficulty: <span class="difficulty-icon">${difficultyIcon}</span></div>
+                          <div class="comments"><a href="${receitas[i].url}#commentsFeed" style="color: #E8772E"><svg xmlns="http://www.w3.org/2000/svg" width="1.17em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1792 1536"><path fill="currentColor" d="M896 128q-204 0-381.5 69.5T232.5 385T128 640q0 112 71.5 213.5T401 1029l87 50l-27 96q-24 91-70 172q152-63 275-171l43-38l57 6q69 8 130 8q204 0 381.5-69.5t282-187.5T1664 640t-104.5-255t-282-187.5T896 128zm896 512q0 174-120 321.5t-326 233t-450 85.5q-70 0-145-8q-198 175-460 242q-49 14-114 22h-5q-15 0-27-10.5t-16-27.5v-1q-3-4-.5-12t2-10t4.5-9.5l6-9l7-8.5l8-9q7-8 31-34.5t34.5-38t31-39.5t32.5-51t27-59t26-76q-157-89-247.5-220T0 640q0-174 120-321.5t326-233T896 0t450 85.5t326 233T1792 640z"/></svg></a></div>
                         </div>
                     </div>`
 
     if (containerRecipiesGrid) containerRecipiesGrid.innerHTML += card;
   }
 
-  containerRecipiesGrid?.addEventListener("click",(e)=>{
-    const teste = (e.target as HTMLElement).parentElement;
-    const url = teste?.id;
-    if(url)
-    renderSingle(url);
-  })
-
+  if(containerRecipiesGrid) {
+    containerRecipiesGrid.onclick = (e)=>{
+      const teste = (e.target as HTMLElement).parentElement;
+      const url = teste?.id;
+      if(url)
+      renderSingle(url);
+    }
+  } 
+  
   transitionEffect();
 
 }
@@ -321,7 +323,6 @@ function transitionEffectSingleRecipe() {
   const image = document.querySelectorAll('.full-recipe-image');
   const ingredients = document.querySelectorAll('.ingredients-wrapper');
   const footer = document.querySelectorAll('.footer-wrapper');
-  console.log(ingredients);
 
   const observer2 = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
